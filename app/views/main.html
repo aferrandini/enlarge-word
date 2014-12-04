@@ -4,8 +4,9 @@
       <input type="text" class="form-control input-lg" placeholder="type the word you want to enlarge" ng-model="enlarger.word">
     </div>
 
-    <button type="submit" ng-click="enlarge()" class="btn btn-success btn-lg">Enlarge</button>
+    <button type="submit" ng-click="enlarge()" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-resize-horizontal"></span> Enlarge</button>
+    <button ng-show="enlarger.word" type="submit" ng-click="reset()" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-remove"></span> Reset</button>
   </form>
 </div>
 
-<div><pre>{{enlarger.enlarged}}</pre></div>
+<div class="well well-lg" ng-bind-html="enlarger.enlarged"></div>
