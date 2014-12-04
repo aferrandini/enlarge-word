@@ -9,27 +9,28 @@
  */
 angular.module('enlargeWordApp')
   .controller('MainCtrl', function ($scope) {
-  	$scope.enlarger = {};
-  	$scope.enlarger.word = '';
-  	$scope.enlarger.repeat = 10;
-  	$scope.enlarger.enlarged = 'Bye e  e   e    e     e      e       e        e         e          e';
+    var space = '&nbsp;';
 
-  	$scope.enlarge = function() {
-  		var word = $scope.enlarger.word;
-		var lastLeter = word.slice(-1);
+    $scope.enlarger = {
+      word: 'Bye',
+      repeat: 10,
+      enlarged: ''
+    };
 
-		var spaces = '';
-		for (var i=1; i<=$scope.enlarger.repeat; i++) {
-			var count = i;
-			var spaces = '';
-			while(count) {
-				spaces += ' ';
-				count--;
-			}
+    $scope.enlarge = function() {
+      var word = $scope.enlarger.word;
+      var lastLetter = word.slice(-1);
 
-  			word = word + spaces + lastLeter;
-  		}
+      for (var i=1; i<=$scope.enlarger.repeat; i++) {
+        word = word + Array(i+1).join(space) + lastLetter;
+      }
 
-  		$scope.enlarger.enlarged = word;
-  	}
+      $scope.enlarger.enlarged = word;
+    };
+
+    $scope.reset = function() {
+      $scope.enlarger.word = '';
+    };
+
+    $scope.enlarge();
   });

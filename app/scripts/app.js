@@ -10,7 +10,8 @@
  */
 angular
   .module('enlargeWordApp', [
-    'ngRoute'
+    'ngRoute',
+    'ngSanitize'
   ])
   .config(function ($routeProvider) {
     $routeProvider
